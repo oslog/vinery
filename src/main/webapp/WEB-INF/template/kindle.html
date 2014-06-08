@@ -1,0 +1,119 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+    <title>葡萄园</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+	<nav class="navbar navbar-default navbar-fixed-top v-opacity" role="navigation">
+		<div class="container">
+		  <!-- Brand and toggle get grouped for better mobile display -->
+		  <div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+			  <span class="sr-only">Toggle navigation</span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			  <span class="icon-bar"></span>
+			</button>
+			<div class="v-logo"></div>
+		  </div>
+
+		  <!-- Collect the nav links, forms, and other content for toggling -->
+		  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav">
+			  <li><a href="index.html">首页</a></li>
+			  <li><a href="index.html">热门</a></li>
+			  <li><a href="index.html">我的</a></li>
+			</ul>
+			<form class="navbar-form navbar-left" role="search">
+			  <div class="form-group">
+				<input type="text" class="form-control" placeholder="大家正在搜索：xxx">
+			  </div>
+			  <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search"></span></button>
+			</form>
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#"><span class="glyphicon glyphicon-edit"></span></a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-briefcase"></span></a></li>
+				<li><a href="#"><span class="glyphicon glyphicon-envelope"></span></a></li>
+				<li class="active"><a href="account.html"><span class="glyphicon glyphicon-cog"></span></a></li>
+			</ul>
+		  </div><!-- /.navbar-collapse -->
+	  </div>
+	</nav>
+
+	<div class="container v-container v-opacity">
+		<div class="row">
+			<div class="col-md-3">
+				<div class="list-group">
+				  <a href="#" class="list-group-item"><span class="glyphicon glyphicon-user"></span> 个人信息</a>
+				  <a href="#" class="list-group-item"><span class="glyphicon glyphicon-picture"></span> 头像</a>
+				  <a href="tag.html" class="list-group-item"><span class="glyphicon glyphicon-heart"></span> 爱好设置</a>
+				  <a href="security.html" class="list-group-item"><span class="glyphicon glyphicon-lock"></span> 账号安全</a>
+				  <a href="#" class="list-group-item active"><span class="glyphicon glyphicon-tower"></span> 账号绑定</a>
+				</div>
+			</div>
+			<div class="col-md-9 v-block-2">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="v-space-bottom-line">请在输入Kindle信息！</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-4">
+						<div class="input-group v-margin5">
+						  <span class="input-group-addon">名字</span>
+						  <input type="text" class="form-control" placeholder="为你的 Kindle 起个名字吧">
+						  <span class="input-group-addon">*</span>
+						</div>
+						<div class="input-group v-margin5">
+						  <span class="input-group-addon">邮箱</span>
+						  <input type="text" class="form-control" placeholder="Kindle 的 E-Mail 地址">
+						  <span class="input-group-addon">*</span>
+						</div>
+						<div class="input-group v-margin5">
+							<span class="input-group-addon">周期</span>
+							<input type="text" class="form-control" placeholder="每周一" disabled>
+							<span class="input-group-btn">
+								<button id="dateBox" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></button>
+								<ul class="dropdown-menu">
+								  <li><a href="#">每天</a></li>
+								  <li class="divider"></li>
+								  <li><a href="#">每周一</a></li>
+								  <li><a href="#">每周二</a></li>
+								  <li><a href="#">每周三</a></li>
+								  <li><a href="#">每周四</a></li>
+								  <li><a href="#">每周五</a></li>
+								  <li><a href="#">每周六</a></li>
+								  <li><a href="#">每周日</a></li>
+								</ul>
+							</span>
+						</div>
+						<div class="input-group v-margin5">
+							<div class="input-group">
+							  <span class="input-group-addon">时间</span>
+							  <input type="password" class="form-control" placeholder="格式：21:30">
+							  <span class="input-group-addon">*</span>
+							</div>
+						</div>
+						<div class="v-center v-margin5">
+							<button type="button" class="btn btn-primary btn-sm v-margin5">保存</button>
+							<button type="button" class="btn btn-primary btn-sm v-margin5">取消</button>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="footer">
+      <div class="container v-footer">
+        <p class="text-muted">版权所有，保留一切权利！Copyright ©2014 葡萄园.</p>
+      </div>
+    </div>
+  </body>
+</html>
