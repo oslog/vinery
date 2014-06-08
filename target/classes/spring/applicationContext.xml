@@ -13,8 +13,8 @@
           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
 	default-autowire="byName">
 
-	<context:component-scan base-package="cn.vinery.bbs.service" />
-	<context:component-scan base-package="cn.vinery.bbs.domain" />
+	<context:component-scan base-package="cn.vinery.service" />
+	<context:component-scan base-package="cn.vinery.domain" />
 
 	<!-- data source -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
@@ -48,7 +48,7 @@
 
 	<!-- 注册Maper -->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="cn.vinery.bbs.domain.dao" />
+		<property name="basePackage" value="cn.vinery.domain.dao" />
 		<property name="sqlSessionFactory" ref="sqlSessionFactory"></property>
 	</bean>
 
@@ -74,7 +74,7 @@
 
 	<aop:config>
 		<aop:pointcut id="defaultServiceOperation"
-			expression="(execution(* cn.vinery.bbs.service.*.*(..)))" />
+			expression="(execution(* cn.vinery.service.*.*(..)))" />
 		<aop:advisor advice-ref="defaultTxAdvice" pointcut-ref="defaultServiceOperation" />
 	</aop:config>
 </beans>

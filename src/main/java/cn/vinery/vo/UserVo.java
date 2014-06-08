@@ -1,7 +1,7 @@
 /*
  * Copyright 2014, Cui Tao.
  */
-package cn.vinery.bbs.vo;
+package cn.vinery.vo;
 
 /**
  * 用户信息

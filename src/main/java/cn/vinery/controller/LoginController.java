@@ -1,7 +1,7 @@
 /*
  * Copyright 2014, Cui Tao.
  */
-package cn.vinery.bbs.controller;
+package cn.vinery.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,8 +22,8 @@ public class LoginController extends VineryController {
 	public String enter(@RequestParam("email") String name,
 			@RequestParam("password") String password) {
 		
-		System.out.println(name);
-		System.out.println(password);
+//		System.out.println(name);
+//		System.out.println(password);
 		return "index";
 	}
 }

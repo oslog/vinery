@@ -58,7 +58,7 @@
 		<prop key="java.lang.Throwable">error</prop> </props> </property> </bean> -->
 
 	<!-- 扫描所有的controller -->
-	<context:component-scan base-package="cn.vinery.bbs.controller" />
+	<context:component-scan base-package="cn.vinery.controller" />
 
 
 	<!-- 启用基于注解的处理器映射，添加拦截器，类级别的处理器映射 <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"> 

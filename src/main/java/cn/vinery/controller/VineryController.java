@@ -1,7 +1,7 @@
 /*
  * Copyright 2014, Cui Tao.
  */
-package cn.vinery.bbs.controller;
+package cn.vinery.controller;
 
 /**
  * 控制层基础类
