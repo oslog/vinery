@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation=" 
           http://www.springframework.org/schema/beans 
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
@@ -13,12 +13,11 @@
           http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
 	default-autowire="byName">
 
-	<context:component-scan base-package="cn.vinery.service" />
+	<context:component-scan base-package="cn.vinery.web.service" />
 	<context:component-scan base-package="cn.vinery.domain" />
 
 	<!-- data source -->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
-		destroy-method="close">
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass">
 			<value>com.mysql.jdbc.Driver</value>
 		</property>
@@ -53,8 +52,7 @@
 	</bean>
 
 	<!-- 事务 -->
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource">
 			<ref local="dataSource" />
 		</property>
@@ -63,18 +61,14 @@
 	<tx:advice id="defaultTxAdvice" transaction-manager="transactionManager">
 		<tx:attributes>
 			<tx:method name="*" read-only="true" />
-			<tx:method name="save*" propagation="REQUIRED"
-				rollback-for="Throwable" read-only="false" />
-			<tx:method name="delete*" propagation="REQUIRED"
-				rollback-for="Throwable" read-only="false" />
-			<tx:method name="clear*" propagation="REQUIRED"
-				rollback-for="Throwable" read-only="false" />
+			<tx:method name="save*" propagation="REQUIRED" rollback-for="Throwable" read-only="false" />
+			<tx:method name="delete*" propagation="REQUIRED" rollback-for="Throwable" read-only="false" />
+			<tx:method name="clear*" propagation="REQUIRED" rollback-for="Throwable" read-only="false" />
 		</tx:attributes>
 	</tx:advice>
 
 	<aop:config>
-		<aop:pointcut id="defaultServiceOperation"
-			expression="(execution(* cn.vinery.service.*.*(..)))" />
+		<aop:pointcut id="defaultServiceOperation" expression="(execution(* cn.vinery.web.service.*.*(..)))" />
 		<aop:advisor advice-ref="defaultTxAdvice" pointcut-ref="defaultServiceOperation" />
 	</aop:config>
 </beans>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
 	xsi:schemaLocation=" 
            http://www.springframework.org/schema/beans 
@@ -14,14 +13,26 @@
 
 	<!-- 启用spring mvc 注解 -->
 	<context:annotation-config />
+	<!-- 国际化 -->
+	<mvc:annotation-driven />
+
+	<!-- 当配为<aop:aspectj-autoproxy poxy-target-class="true"/>时，表示使用CGLib动态代理技术织入增强。不过即使proxy-target-class设置为false，如果目标类没有声明接口，则spring将自动使用CGLib动态代理。 
+		<aop:aspectj-autoproxy proxy-target-class="true"/> -->
+
+	<!-- 拦截器 -->
+	<mvc:interceptors>
+		<bean class="cn.vinery.web.interceptor.LogInterceptor" />
+		<bean class="cn.vinery.web.interceptor.SecurityInterceptor" />
+	</mvc:interceptors>
+
+	<!-- 避免IE执行AJAX时,返回JSON出现下载文件 <bean> <property name="supportedMediaTypes"> <list> <value> text/html;charset=UTF-8 </value> 
+		</list> </property> </bean> -->
 
 	<!-- 完成请求和注解POJO的映射 -->
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
 		<property name="messageConverters">
 			<list>
-				<bean
-					class="org.springframework.http.converter.StringHttpMessageConverter">
+				<bean class="org.springframework.http.converter.StringHttpMessageConverter">
 					<property name="supportedMediaTypes">
 						<list>
 							<value>text/html;charset=UTF-8</value>
@@ -32,8 +43,7 @@
 		</property>
 	</bean>
 
-	<bean id="freemarkerConfig"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	<bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
 		<property name="templateLoaderPath" value="/WEB-INF/template" />
 		<property name="freemarkerSettings">
 			<props>
@@ -47,23 +57,38 @@
 		</property>
 	</bean>
 
-	<bean id="viewResolver"
-		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+	<bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
 		<property name="cache" value="true" />
 		<property name="suffix" value=".ftl" />
 		<property name="contentType" value="text/html;charset=UTF-8" />
 	</bean>
-	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> 
-		<property name="exceptionMappings"> <props> <prop key="java.lang.Exception">error</prop> 
-		<prop key="java.lang.Throwable">error</prop> </props> </property> </bean> -->
+
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="useCodeAsDefaultMessage" value="false" />
+		<property name="defaultEncoding" value="UTF-8" />
+		<property name="fallbackToSystemLocale" value="true" />
+		<property name="basenames">
+			<list>
+				<value>classpath:Messages</value>
+				<value>classpath:ValidationMessages</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+		<property name="providerClass" value="org.hibernate.validator.HibernateValidator" />
+		<property name="validationMessageSource" ref="messageSource" />
+	</bean>
+
+	<!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver"> <property name="exceptionMappings"> 
+		<props> <prop key="java.lang.Exception">error</prop> <prop key="java.lang.Throwable">error</prop> </props> </property> </bean> -->
 
 	<!-- 扫描所有的controller -->
-	<context:component-scan base-package="cn.vinery.controller" />
+	<context:component-scan base-package="cn.vinery.web.controller" />
 
 
 	<!-- 启用基于注解的处理器映射，添加拦截器，类级别的处理器映射 <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"> 
-		<property name="interceptors"> <list> <bean class="com.fsj.spring.util.MyHandlerInterceptor"/> 
-		</list> </property> </bean> -->
+		<property name="interceptors"> <list> <bean class="com.fsj.spring.util.MyHandlerInterceptor"/> </list> </property> </bean> -->
 
 
 </beans> 

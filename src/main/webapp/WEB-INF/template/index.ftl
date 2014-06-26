@@ -1,106 +1,23 @@
-﻿<#include "header.ftl">
+<#import "vinery.ftl" as vinery />
+<@vinery.header title="葡萄园" activeName="home"/>
 			<div class="col-md-9 v-block-2">
 				<div class="v-space"></div>
-				<!-- 一篇文章 -->
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
-				<div class="media">
-				  <a class="pull-left" href="#">
-					<img class="media-object" src="images/0.jpg" alt="...">
-				  </a>
-				  <div class="media-body">
-					<h4 class="media-heading">文章标题</h4>
-					<div class="v-font-dark-grey">【李稻葵：中国房地产行业的确进入了一个转折点】李稻葵今日在#五道口全球金融论坛#上表示，中国房地产行业的确进入了转折点，但他不认为行业将会出现美国2007年、2008年那样大规模的下降。最主要的原因是，现在持有房产的这部分家庭，不会像在美国金融危机之前那样被迫抛售。http://t.cn/8skHFQB</div>
-					<small class="v-font-grey"><div class="pull-left">35分种前</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(20)</div></small>
-				  </div>
-				</div>
-				<div class="v-article-space"></div>
+				<#list rssList as rss>
+					<#list rss.articles as article>
+						<!-- 一篇文章 -->
+						<div class="media">
+						  <a class="pull-left" href="#">
+							<img class="media-object" src="images/0.jpg" alt="...">
+						  </a>
+						  <div class="media-body">
+							<h4 class="media-heading">${article.title}</h4>
+							<div class="v-font-dark-grey">${article.content} <a href="${article.link}" target="_blank">${article.link}</a></div>
+							<small class="v-font-grey"><div class="pull-left">${article.pubDate}</div><div class="pull-right"><span class="glyphicon glyphicon-thumbs-up"/> (8) | <span class="glyphicon glyphicon-star-empty"/> | 转发(100) | 评论(0)</div></small>
+						  </div>
+						</div>
+						<div class="v-article-space"></div>
+					</#list>
+				</#list>
 			</div>
 			<div class="col-md-3 v-block-1">
 				<div class="media">

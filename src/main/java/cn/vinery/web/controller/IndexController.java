@@ -1,14 +1,15 @@
 /*
  * Copyright 2014, Cui Tao.
  */
-package cn.vinery.controller;
+package cn.vinery.web.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import cn.vinery.service.IndexService;
+import cn.vinery.Constants;
+import cn.vinery.web.service.IndexService;
 
 /**
  * 首页
@@ -16,16 +17,19 @@ import cn.vinery.service.IndexService;
 @Controller
 public class IndexController extends VineryController {
 
+	/** 首页服务 */
 	@Autowired
 	private IndexService indexService;
 
+	/**
+	 * 进入首页
+	 * 
+	 * @return
+	 */
 	@RequestMapping("")
 	public ModelAndView index() {
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName("index");
-		// mav.addObject("myPage", this.indexService.getHotLinks(0));
-		// mav.addObject("tags", this.indexService.getHotTags());
-		mav.addObject("searchTags", this.indexService.getLatest());
+		ModelAndView mav = new ModelAndView(Constants.INDEX);
+		mav.addObject("rssList", this.indexService.getLatest());
 		return mav;
 	}
 

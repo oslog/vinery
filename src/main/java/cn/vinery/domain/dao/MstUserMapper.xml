@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.vinery.domain.dao.MstUserMapper">
+	<resultMap id="BaseResultMap" type="cn.vinery.domain.dto.User">
+		<id column="ID" jdbcType="INTEGER" property="id" />
+		<result column="EMAIL" jdbcType="VARCHAR" property="email" />
+		<result column="NICKNAME" jdbcType="VARCHAR" property="nickName" />
+		<result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+		<result column="RID" jdbcType="INTEGER" property="rid" />
+		<result column="PHONE" jdbcType="VARCHAR" property="phone" />
+		<result column="SEXUAL" jdbcType="INTEGER" property="sexual" />
+		<result column="STATUS" jdbcType="INTEGER" property="status" />
+		<result column="UPDATE_DATE" jdbcType="DATE" property="updateDate" />
+		<result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		ID, EMAIL, NICKNAME, PASSWORD, RID, PHONE, SEXUAL, STATUS,
+		UPDATE_DATE, CREATE_DATE
+	</sql>
+
+	<!-- 根据主键查询数据 -->
+	<select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from mst_user
+		where ID = #{id,jdbcType=INTEGER}
+	</select>
+
+	<!-- 检查除指定id外是否存在相同邮箱地址的数据 -->
+	<select id="countByIdAndEmail" parameterType="map" resultType="java.lang.Integer">
+		select count(1) from mst_user
+		where ID != #{id,jdbcType=INTEGER}
+		  and EMAIL = #{email,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 根据主键删除数据 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+		delete from mst_user where Id = #{id,jdbcType=INTEGER}
+	</delete>
+
+	<!-- 新增数据 -->
+	<insert id="insert" parameterType="cn.vinery.domain.dto.User">
+		insert into mst_user (ID, EMAIL, NICKNAME, PASSWORD, RID, PHONE, SEXUAL,
+		STATUS,
+		UPDATE_DATE, CREATE_DATE)
+		values
+		(#{id,jdbcType=INTEGER},
+		#{email,jdbcType=VARCHAR},
+		#{nickName,jdbcType=VARCHAR},
+		#{password,jdbcType=VARCHAR},
+		#{rid,jdbcType=INTEGER},
+		#{phone,jdbcType=VARCHAR},
+		#{sexual,jdbcType=INTEGER},
+		#{status,jdbcType=INTEGER},
+		#{updateDate,jdbcType=DATE},
+		#{createDate,jdbcType=DATE})
+	</insert>
+
+	<!-- 新增数据，仅保存不为空的数据 -->
+	<insert id="insertSelective" parameterType="cn.vinery.domain.dto.User">
+		insert into mst_user
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				ID,
+			</if>
+			<if test="email != null">
+				EMAIL,
+			</if>
+			<if test="nickName != null">
+				NICKNAME,
+			</if>
+			<if test="password != null">
+				PASSWORD,
+			</if>
+			<if test="rid != null">
+				RID,
+			</if>
+			<if test="phone != null">
+				PHONE,
+			</if>
+			<if test="sexual != null">
+				SEXUAL,
+			</if>
+			<if test="status != null">
+				STATUS,
+			</if>
+			<if test="updateDate != null">
+				UPDATE_DATE,
+			</if>
+			<if test="createDate != null">
+				CREATE_DATE,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="id != null">
+				#{id,jdbcType=INTEGER},
+			</if>
+			<if test="email != null">
+				#{email,jdbcType=VARCHAR},
+			</if>
+			<if test="nickName != null">
+				#{nickName,jdbcType=VARCHAR},
+			</if>
+			<if test="password != null">
+				#{password,jdbcType=VARCHAR},
+			</if>
+			<if test="rid != null">
+				#{rid,jdbcType=INTEGER},
+			</if>
+			<if test="phone != null">
+				#{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="sexual != null">
+				#{sexual,jdbcType=INTEGER},
+			</if>
+			<if test="status != null">
+				#{status,jdbcType=INTEGER},
+			</if>
+			<if test="updateDate != null">
+				#{updateDate,jdbcType=DATE},
+			</if>
+			<if test="createDate != null">
+				#{createDate,jdbcType=DATE},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据主键更新数据 -->
+	<update id="updateByPrimaryKey" parameterType="cn.vinery.domain.dto.User">
+		update mst_user
+		set EMAIL = #{email,jdbcType=VARCHAR},
+		NICKNAME = #{nickName,jdbcType=VARCHAR},
+		PASSWORD = #{password,jdbcType=VARCHAR},
+		RID = #{rid,jdbcType=INTEGER},
+		PHONE = #{phone,jdbcType=VARCHAR},
+		SEXUAL = #{sexual,jdbcType=INTEGER},
+		STATUS = #{status,jdbcType=INTEGER},
+		UPDATE_DATE = #{updateDate,jdbcType=DATE},
+		CREATE_DATE = #{createDate,jdbcType=DATE}
+		where Id = #{id,jdbcType=INTEGER}
+	</update>
+
+	<!-- 根据主键更新数据，仅保存不为空的数据 -->
+	<update id="updateByPrimaryKeySelective" parameterType="map">
+		update mst_user
+		<set>
+			<if test="record.email != null">
+				EMAIL = #{record.email,jdbcType=VARCHAR},
+			</if>
+			<if test="record.nickName != null">
+				NAME = #{record.nickName,jdbcType=VARCHAR},
+			</if>
+			<if test="record.password != null">
+				PASSWORD = #{record.password,jdbcType=VARCHAR},
+			</if>
+			<if test="record.rid != null">
+				RID = #{record.rid,jdbcType=INTEGER},
+			</if>
+			<if test="record.phone != null">
+				PHONE = #{record.phone,jdbcType=VARCHAR},
+			</if>
+			<if test="record.sexual != null">
+				SEXUAL = #{record.sexual,jdbcType=INTEGER},
+			</if>
+			<if test="record.status != null">
+				STATUS = #{record.status,jdbcType=INTEGER},
+			</if>
+			<if test="record.updateDate != null">
+				UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+			</if>
+			<if test="record.createDate != null">
+				CREATE_DATE = #{record.createDate,jdbcType=DATE},
+			</if>
+		</set>
+		where Id = #{record.id,jdbcType=INTEGER}
+	</update>
+	<!-- 根据邮箱地址和密码查询数据 -->
+	<select id="selectByEmailAndPs" parameterType="map" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from mst_user
+		where email = #{email,jdbcType=VARCHAR}
+		and password = #{password,jdbcType=VARCHAR}
+	</select>
+
+</mapper>
