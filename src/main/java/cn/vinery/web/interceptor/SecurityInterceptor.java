@@ -33,14 +33,17 @@ public class SecurityInterceptor implements HandlerInterceptor {
 	 */
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
+		// 获取安全注释
 		Security security = ((HandlerMethod) handler).getMethodAnnotation(Security.class);
+		// 不存在则通过
 		if (security == null) {
 			return true;
 		}
 
+		// 用户是否登录
 		UserForm user = (UserForm) request.getSession().getAttribute(Constants.CURRENT_USER);
 		if (user == null) {
-			response.sendRedirect(request.getContextPath() + "/login");
+			response.sendRedirect(request.getContextPath() + "/" + Constants.LOGIN);
 			return false;
 		}
 

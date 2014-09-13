@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="cn">
   <head>
-    <title>葡萄园</title>
+    <title>${(systemConfig.system_title)!}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="Content-Language" content="utf-8" />

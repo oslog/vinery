@@ -6,7 +6,7 @@ package cn.vinery.exception;
 /**
  * 没找到数据异常
  */
-public class NoFindDataException extends BusinessLogicException {
+public class NoDataFoundException extends BusinessLogicException {
 
 	/**
 	 * serialVersionUID
@@ -16,7 +16,7 @@ public class NoFindDataException extends BusinessLogicException {
 	/**
 	 * @param msg
 	 */
-	public NoFindDataException(String msg) {
+	public NoDataFoundException(String msg) {
 		super(msg);
 	}
 }

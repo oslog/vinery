@@ -130,3 +130,7 @@ body {
 	padding-top: 10px;
 	background-color: #FFF;
 }
+.v-error-msg {
+	color: #FF0000;
+	font-weight: bold;
+}

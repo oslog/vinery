@@ -99,7 +99,7 @@
 	<div class="col-md-3">
 		<div class="list-group">
 		  <a href="/set/index" class="list-group-item<#if activeName=="act"> active</#if>"><span class="glyphicon glyphicon-user"></span> 个人信息</a>
-		  <a href="/set/avatar" class="list-group-item"><span class="glyphicon glyphicon-picture"></span> 头像</a>
+		  <a href="/set/avatar" class="list-group-item<#if activeName=="ava"> active</#if>"><span class="glyphicon glyphicon-picture"></span> 头像</a>
 		  <a href="tag.html" class="list-group-item"><span class="glyphicon glyphicon-heart"></span> 爱好设置</a>
 		  <a href="security.html" class="list-group-item"><span class="glyphicon glyphicon-lock"></span> 账号安全</a>
 		  <a href="kindle.html" class="list-group-item"><span class="glyphicon glyphicon-tower"></span> 账号绑定</a>

@@ -1,6 +1,6 @@
 <#import "vinery.ftl" as vinery />
 <@vinery.header title="葡萄园" activeName="set"/>
-<@vinery.sidebar activeName="act"/>
+<@vinery.sidebar activeName="ava"/>
 
 <script type="text/javascript" src="/js/swfobject.js"></script>
 <script type="text/javascript" src="/js/fullAvatarEditor.js"></script>

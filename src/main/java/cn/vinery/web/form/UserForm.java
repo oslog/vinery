@@ -6,8 +6,6 @@ package cn.vinery.web.form;
 import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
-import cn.vinery.domain.dto.User;
-import cn.vinery.exception.NoFindDataException;
 import cn.vinery.web.form.validator.NotValue;
 
 /**
@@ -33,28 +31,8 @@ public class UserForm {
 	private Integer sexual;
 	/** 当前状态 */
 	private Integer status;
-
-	public UserForm() {
-	}
-
-	/**
-	 * 用pojo初始化对象
-	 * 
-	 * @param dto
-	 * @throws NoFindDataException
-	 */
-	public UserForm(User dto) throws NoFindDataException {
-		if (dto == null) {
-			throw new NoFindDataException("No find user dto.");
-		}
-
-		this.id = dto.getId();
-		this.email = dto.getEmail();
-		this.nickName = dto.getNickName();
-		this.phone = dto.getPhone();
-		this.sexual = dto.getSexual();
-		this.status = dto.getStatus();
-	}
+	/** 格言 */
+	private String maxim;
 
 	/**
 	 * 获取id
@@ -180,5 +158,23 @@ public class UserForm {
 	 */
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	/**
+	 * 获取maxim
+	 * 
+	 * @return maxim
+	 */
+	public String getMaxim() {
+		return maxim;
+	}
+
+	/**
+	 * 设置maxim
+	 * 
+	 * @param maxim
+	 */
+	public void setMaxim(String maxim) {
+		this.maxim = maxim;
 	}
 }

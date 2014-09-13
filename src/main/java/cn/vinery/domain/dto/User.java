@@ -3,7 +3,6 @@
  */
 package cn.vinery.domain.dto;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
@@ -27,6 +26,8 @@ public class User {
 	private Integer sexual;
 	/** 当前状态 */
 	private Integer status;
+	/** 格言 */
+	private String maxim;
 	/** 更新时间 */
 	private Timestamp updateDate;
 	/** 创建时间 */
@@ -174,6 +175,24 @@ public class User {
 	 */
 	public void setStatus(Integer status) {
 		this.status = status;
+	}
+
+	/**
+	 * 获取maxim
+	 * 
+	 * @return maxim
+	 */
+	public String getMaxim() {
+		return maxim;
+	}
+
+	/**
+	 * 设置maxim
+	 * 
+	 * @param maxim
+	 */
+	public void setMaxim(String maxim) {
+		this.maxim = maxim;
 	}
 
 	/**

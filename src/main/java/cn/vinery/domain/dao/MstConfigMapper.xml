@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.vinery.domain.dao.MstConfigMapper">
+	<resultMap id="BaseResultMap" type="cn.vinery.domain.dto.Config">
+		<id column="KEY" jdbcType="VARCHAR" property="key" />
+		<result column="VALUE" jdbcType="VARCHAR" property="value" />
+		<result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		`KEY`, VALUE, UPDATE_DATE
+	</sql>
+
+	<!-- 查询全部数据 -->
+	<select id="selectAll" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from mst_config
+	</select>
+
+	<!-- 根据主键查询数据 -->
+	<select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+		select
+		<include refid="Base_Column_List" />
+		from mst_config
+		where `KEY` = #{key,jdbcType=VARCHAR}
+	</select>
+
+	<!-- 根据主键删除数据 -->
+	<delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+		delete from mst_config where KEY = #{key,jdbcType=VARCHAR}
+	</delete>
+
+	<!-- 新增数据 -->
+	<insert id="insert" parameterType="cn.vinery.domain.dto.Config">
+		insert into mst_config (`KEY`, VALUE, UPDATE_DATE)
+		values
+		(#{key,jdbcType=VARCHAR},
+		#{value,jdbcType=VARCHAR},
+		#{updateDate,jdbcType=DATE})
+	</insert>
+
+	<!-- 新增数据，仅保存不为空的数据 -->
+	<insert id="insertSelective" parameterType="cn.vinery.domain.dto.Config">
+		insert into mst_config
+		<trim prefix="(" suffix=")" suffixOverrides=",">
+			<if test="key != null">
+				`KEY`,
+			</if>
+			<if test="value != null">
+				VALUE,
+			</if>
+			<if test="updateDate != null">
+				UPDATE_DATE,
+			</if>
+		</trim>
+		<trim prefix="values (" suffix=")" suffixOverrides=",">
+			<if test="key != null">
+				#{key,jdbcType=VARCHAR},
+			</if>
+			<if test="value != null">
+				#{value,jdbcType=VARCHAR},
+			</if>
+			<if test="updateDate != null">
+				#{updateDate,jdbcType=TIMESTAMP},
+			</if>
+		</trim>
+	</insert>
+
+	<!-- 根据主键更新数据 -->
+	<update id="updateByPrimaryKey" parameterType="cn.vinery.domain.dto.User">
+		update mst_config
+		set VALUE = #{value,jdbcType=VARCHAR},
+		UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP}
+		where `KEY` = #{key,jdbcType=VARCHAR}
+	</update>
+
+	<!-- 根据主键更新数据，仅保存不为空的数据 -->
+	<update id="updateByPrimaryKeySelective" parameterType="map">
+		update mst_config
+		<set>
+			<if test="record.email != null">
+				VALUE = #{record.value,jdbcType=VARCHAR},
+			</if>
+			<if test="record.updateDate != null">
+				UPDATE_DATE = #{record.updateDate,jdbcType=TIMESTAMP},
+			</if>
+		</set>
+		where `KEY` = #{record.key,jdbcType=VARCHAR}
+	</update>
+</mapper>

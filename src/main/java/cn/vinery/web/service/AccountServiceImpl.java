@@ -33,7 +33,7 @@ public class AccountServiceImpl implements AccountService {
 		user.setEmail(form.getEmail());
 		user.setPhone(form.getPhone());
 
-		this.logic.update(user);
+		this.logic.modify(user);
 	}
 
 }

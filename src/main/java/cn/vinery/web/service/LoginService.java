@@ -3,7 +3,7 @@
  */
 package cn.vinery.web.service;
 
-import cn.vinery.exception.NoFindDataException;
+import cn.vinery.exception.NoDataFoundException;
 import cn.vinery.web.form.UserForm;
 
 /**
@@ -18,5 +18,5 @@ public interface LoginService {
 	 * @param password
 	 * @return
 	 */
-	UserForm login(UserForm userForm) throws NoFindDataException;
+	UserForm login(UserForm userForm) throws NoDataFoundException;
 }

@@ -4,7 +4,7 @@
 package cn.vinery.exception;
 
 /**
- * 邮箱地址重复异常
+ * 主键信息重复异常
  */
 public class RepeatException extends BusinessLogicException {
 

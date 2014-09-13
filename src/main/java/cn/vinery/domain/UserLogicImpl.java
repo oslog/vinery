@@ -48,7 +48,7 @@ public class UserLogicImpl implements UserLogic {
 	 * @see cn.vinery.domain.UserLogic#update(cn.vinery.domain.dto.User)
 	 */
 	@Override
-	public void update(User user) throws RepeatException {
+	public void modify(User user) throws RepeatException {
 		Integer count = this.mapper.countByIdAndEmail(user.getId(), user.getEmail());
 		if (count > 0) {
 			throw new RepeatException("email.repeat.error");

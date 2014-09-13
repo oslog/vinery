@@ -10,13 +10,13 @@
 		<result column="PHONE" jdbcType="VARCHAR" property="phone" />
 		<result column="SEXUAL" jdbcType="INTEGER" property="sexual" />
 		<result column="STATUS" jdbcType="INTEGER" property="status" />
-		<result column="UPDATE_DATE" jdbcType="DATE" property="updateDate" />
-		<result column="CREATE_DATE" jdbcType="DATE" property="createDate" />
+		<result column="MAXIM" jdbcType="VARCHAR" property="maxim" />
+		<result column="UPDATE_DATE" jdbcType="TIMESTAMP" property="updateDate" />
+		<result column="CREATE_DATE" jdbcType="TIMESTAMP" property="createDate" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		ID, EMAIL, NICKNAME, PASSWORD, RID, PHONE, SEXUAL, STATUS,
-		UPDATE_DATE, CREATE_DATE
+		ID, EMAIL, NICKNAME, PASSWORD, RID, PHONE, SEXUAL, STATUS, MAXIM, UPDATE_DATE, CREATE_DATE
 	</sql>
 
 	<!-- 根据主键查询数据 -->
@@ -42,7 +42,7 @@
 	<!-- 新增数据 -->
 	<insert id="insert" parameterType="cn.vinery.domain.dto.User">
 		insert into mst_user (ID, EMAIL, NICKNAME, PASSWORD, RID, PHONE, SEXUAL,
-		STATUS,
+		STATUS, MAXIM,
 		UPDATE_DATE, CREATE_DATE)
 		values
 		(#{id,jdbcType=INTEGER},
@@ -53,8 +53,9 @@
 		#{phone,jdbcType=VARCHAR},
 		#{sexual,jdbcType=INTEGER},
 		#{status,jdbcType=INTEGER},
-		#{updateDate,jdbcType=DATE},
-		#{createDate,jdbcType=DATE})
+		#{maxim,jdbcType=VARCHAR},
+		#{updateDate,jdbcType=TIMESTAMP},
+		#{createDate,jdbcType=TIMESTAMP})
 	</insert>
 
 	<!-- 新增数据，仅保存不为空的数据 -->
@@ -84,6 +85,9 @@
 			</if>
 			<if test="status != null">
 				STATUS,
+			</if>
+			<if test="maxim != null">
+				MAXIM,
 			</if>
 			<if test="updateDate != null">
 				UPDATE_DATE,
@@ -117,11 +121,14 @@
 			<if test="status != null">
 				#{status,jdbcType=INTEGER},
 			</if>
+			<if test="maxim != null">
+				#{maxim,jdbcType=VARCHAR},
+			</if>
 			<if test="updateDate != null">
-				#{updateDate,jdbcType=DATE},
+				#{updateDate,jdbcType=TIMESTAMP},
 			</if>
 			<if test="createDate != null">
-				#{createDate,jdbcType=DATE},
+				#{createDate,jdbcType=TIMESTAMP},
 			</if>
 		</trim>
 	</insert>
@@ -136,8 +143,9 @@
 		PHONE = #{phone,jdbcType=VARCHAR},
 		SEXUAL = #{sexual,jdbcType=INTEGER},
 		STATUS = #{status,jdbcType=INTEGER},
-		UPDATE_DATE = #{updateDate,jdbcType=DATE},
-		CREATE_DATE = #{createDate,jdbcType=DATE}
+		MAXIM = #{maxim,jdbcType=VARCHAR},
+		UPDATE_DATE = #{updateDate,jdbcType=TIMESTAMP},
+		CREATE_DATE = #{createDate,jdbcType=TIMESTAMP}
 		where Id = #{id,jdbcType=INTEGER}
 	</update>
 
@@ -166,11 +174,14 @@
 			<if test="record.status != null">
 				STATUS = #{record.status,jdbcType=INTEGER},
 			</if>
+			<if test="record.maxim != null">
+				STATUS = #{record.maxim,jdbcType=VARCHAR},
+			</if>
 			<if test="record.updateDate != null">
-				UPDATE_DATE = #{record.updateDate,jdbcType=DATE},
+				UPDATE_DATE = #{record.updateDate,jdbcType=TIMESTAMP},
 			</if>
 			<if test="record.createDate != null">
-				CREATE_DATE = #{record.createDate,jdbcType=DATE},
+				CREATE_DATE = #{record.createDate,jdbcType=TIMESTAMP},
 			</if>
 		</set>
 		where Id = #{record.id,jdbcType=INTEGER}

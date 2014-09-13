@@ -36,16 +36,14 @@ public class LogInterceptor implements HandlerInterceptor {
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
 		StringBuilder sb = new StringBuilder();
-		sb.append("New access request.\n");
 
 		UserForm uf = (UserForm) request.getSession().getAttribute(Constants.CURRENT_USER);
 		if (uf != null) {
-			sb.append("User ID:").append(uf.getId()).append("\n");
+			sb.append("User ID:").append(uf.getId());
 		}
 
-		sb.append("Client IP:").append(request.getRemoteHost()).append(" PORT:").append(request.getRemotePort())
-				.append("\n");
-		sb.append("URL:").append(request.getRequestURI()).append("\n");
+		sb.append(" IP:").append(request.getRemoteHost()).append(" PORT:").append(request.getRemotePort())
+				.append(" URL:").append(request.getRequestURI());
 		Map<String, String[]> paramMap = request.getParameterMap();
 		Iterator<Map.Entry<String, String[]>> iterator = paramMap.entrySet().iterator();
 

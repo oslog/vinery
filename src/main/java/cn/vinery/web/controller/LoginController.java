@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.vinery.Constants;
-import cn.vinery.exception.NoFindDataException;
+import cn.vinery.exception.NoDataFoundException;
 import cn.vinery.web.form.UserForm;
 import cn.vinery.web.service.LoginService;
 
@@ -56,7 +56,8 @@ public class LoginController extends VineryController {
 
 		try {
 			request.getSession().setAttribute(Constants.CURRENT_USER, service.login(user));
-		} catch (NoFindDataException ex) {
+		} catch (NoDataFoundException ex) {
+			mav.setViewName(Constants.LOGIN);
 			mav.addObject(Constants.ERROR_MSG, "user.not.exist");
 			return mav;
 		}

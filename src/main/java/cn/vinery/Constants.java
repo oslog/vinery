@@ -19,6 +19,9 @@ public interface Constants {
 
 	/** 当前登录的用户KEY */
 	String CURRENT_USER = "currentUser";
+	
+	/** 配置信息KEY */
+	String CONFIG_KEY = "systemConfig";
 
 	/** 错误信息KEY */
 	String ERROR_MSG = "errorMsg";

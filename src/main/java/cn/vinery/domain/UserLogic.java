@@ -26,5 +26,5 @@ public interface UserLogic {
 	 * 
 	 * @param user
 	 */
-	public void update(User user) throws RepeatException;
+	public void modify(User user) throws RepeatException;
 }

@@ -16,6 +16,9 @@
 	<context:component-scan base-package="cn.vinery.web.service" />
 	<context:component-scan base-package="cn.vinery.domain" />
 
+	<!-- listener用的对象 -->
+	<bean id="systemListener" class="cn.vinery.web.listener.SystemListener" init-method="initialized" destroy-method="destroyed" />
+
 	<!-- data source -->
 	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
 		<property name="driverClass">
